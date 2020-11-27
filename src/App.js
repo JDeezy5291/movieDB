@@ -7,16 +7,22 @@ class App extends Component {
     console.log("This is my initializer")
 
     const movies = [
-      {id: 0, title: "Avengers: Infinity War", overview: "this is the overview"},
-      {id: 1, title: "Avengers: Infinity War 2", overview: "this is the overview 2"}
+      {id: 0, poster_src: "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UX182_CR0,0,182,268_AL_.jpg", title: "Avengers: Infinity War", overview: "this is the overview"},
+      {id: 1, poster_src: "https://m.media-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_UX182_CR0,0,182,268_AL_.jpg", title: "Avengers: Infinity War 2", overview: "this is the overview 2"}
     ]
-
-    this.state = { rows: <p>This is my row</p> }
 
     var movieRows = []
     movies.forEach((movie) => {
-      console.log(movie.id)
-      movieRows.push(<p key={movie.id}>{movie.title}</p>)
+      console.log(movie.title)
+      const movieRow = <table key={movie.id}>
+        <tbody>
+          <tr>
+            <td><img src={movie.poster_src} alt="poster"/></td>
+            <td>{movie.title}</td>
+          </tr>
+        </tbody>
+      </table>
+      movieRows.push(movieRow)
     })
 
       this.state = {rows: movieRows}
@@ -25,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <table>
+        <table className="navbar">
           <tbody>
             <tr>
               <td>
