@@ -1,5 +1,6 @@
  import { Component } from 'react';
 import './App.css';
+import MovieRow from './movieRow'
 
 class App extends Component {
   constructor(props) {
@@ -14,14 +15,7 @@ class App extends Component {
     var movieRows = []
     movies.forEach((movie) => {
       console.log(movie.title)
-      const movieRow = <table key={movie.id}>
-        <tbody>
-          <tr>
-            <td><img src={movie.poster_src} alt="poster"/></td>
-            <td>{movie.title}</td>
-          </tr>
-        </tbody>
-      </table>
+      const movieRow = <MovieRow movie = {movie} />
       movieRows.push(movieRow)
     })
 
